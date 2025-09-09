@@ -46,6 +46,32 @@ Bem-vindo ao projeto de automação de testes desenvolvido com Robot Framework! 
    - Digite e selecione "Python: Select Interpreter".
    - Escolha o interpretador que tem `(venv)` no nome e aponta para a pasta `venv` do seu projeto.
 
+3. **Importante**: Tirar screenshot (print para evidência)
+   - Crie uma variável ${PASTA_SCREENSHOTS}    ../screenshots
+   - Use a keyword para tirar screenshot
+    Capture Page Screenshot    ${PASTA_SCREENSHOTS}/códigoTask_telaespecifica.png  
+   exemplo:
+      ***Settings***
+      Library    SeleniumLibrary
+      Library    ExcelLibrary
+      Library    OperatingSystem
+
+      ***Variables***
+      ${BROWSER}           chrome
+      ${URL_SISTEMA}       https://url.do.sistema.que.usa.cpf/
+      ${ARQUIVO_CPFS}      ../data/cpfs.xlsx
+      ${PASTA_SCREENSHOTS}    ../screenshots
+
+      *** Test Cases ***
+      Exemplo Básico de Screenshot
+      Open Browser    http://www.saucedemo.com    chrome
+      Maximize Browser Window
+
+      # Tira um screenshot da página de login
+      Capture Page Screenshot    ${PASTA_SCREENSHOTS}/GTD-3431_telaespecifica.png
+
+      Close Browser
+
 ## Estrutura do Projeto
 
 ```
@@ -113,6 +139,4 @@ robot -d results -i smoke tests/
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
----
-
-Desenvolvido com ❤️ por Pablo Henrique
+Desenvolvido por Pablo Henrique
